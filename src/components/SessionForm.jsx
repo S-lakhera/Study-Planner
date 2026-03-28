@@ -7,6 +7,9 @@ export default function SessionForm() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { addSession, setIsFormVisible } = useContext(SessionContext);
 
+    const today = new Date().toISOString().split("T")[0];
+    
+
     const onSubmit = (data) => {
         const newSession = { id: nanoid(), isCompleted: false, ...data };
         addSession(newSession);
@@ -25,16 +28,19 @@ export default function SessionForm() {
 
                 {/* Top bar */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-[#1f1f1f]">
+
                     <div>
                         <p className="text-[10px] uppercase tracking-widest text-gray-600 font-semibold mb-0.5">Study Planner</p>
                         <h2 className="text-lg font-black text-white tracking-tight">New Session</h2>
                     </div>
+
                     <button
                         onClick={() => setIsFormVisible(false)}
                         className="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-white hover:bg-[#222] border border-transparent hover:border-[#333] transition-all duration-200"
                     >
                         <i className="ri-close-line text-base" />
                     </button>
+
                 </div>
 
                 {/* Form Body */}
@@ -118,15 +124,19 @@ export default function SessionForm() {
                         <label className="text-[11px] uppercase tracking-widest text-gray-500 font-semibold">Date</label>
                         <input
                             type="date"
-                            {...register("date", { required: true })}
+                            min={today}
+                            {...register("date", {
+                                 required: "Date is Required" ,
+                                 validate : value => value >= today || "Date cannot be in the past.."
+                                })}
                             className={`w-full bg-[#181818] border rounded-lg px-3 py-2.5 text-sm text-white outline-none transition-all duration-200
                                 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30
-                                [color-scheme:dark]
+                                scheme:dark
                                 ${errors.date ? "border-red-500/60" : "border-[#2d2d2d]"}`}
                         />
                         {errors.date && (
                             <span className="text-red-400 text-xs flex items-center gap-1">
-                                <i className="ri-error-warning-line" /> Date is required
+                                <i className="ri-error-warning-line" /> {errors.date.message}
                             </span>
                         )}
                     </div>

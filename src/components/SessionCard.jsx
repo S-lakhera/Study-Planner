@@ -14,13 +14,13 @@ export default function SessionCard({ session }) {
 
     return (
         <div
-            className={`group relative flex flex-col justify-between bg-[#141414] border border-[#232323] 
+            className={`group relative flex flex-col justify-between bg-[#141414] shadow-xl border border-[#232323] 
         hover:border-[#333] rounded-2xl p-5 h-full transition-all duration-200 
         hover:shadow-xl hover:shadow-black/40 hover:-translate-y-0.5
         ${session.isCompleted ? "opacity-50" : ""}`}
         >
             {/* Top accent bar */}
-            <div className={`absolute top-0 left-6 right-6 h-[2px] rounded-b-full ${p.bar} opacity-70`} />
+            <div className={`absolute top-0 left-6 right-6 h-0.5 rounded-b-full ${p.bar} opacity-70`} />
 
             {/* Card Top: Subject chip + Priority badge */}
             <div className="flex items-center justify-between mb-4 pt-1">
@@ -65,7 +65,7 @@ export default function SessionCard({ session }) {
                 {/* Meta */}
                 <div className="flex items-center gap-2 text-[13px] text-gray-400">
                     <span className="flex items-center gap-1">
-                        <i className="ri-time-line text-lg" /> {session.duration}m
+                        <i className="ri-time-line text-lg" /> {session.duration < 60 ? `${session.duration}m` : `${Math.floor(session.duration/60)}h:${session.duration%60}m`}
                     </span>
                     <span className="text-gray-500">•</span>
                     <span>{session.date}</span>
