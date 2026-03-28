@@ -20,7 +20,7 @@ export default function SessionList() {
 
       {/* Header */}
       <div className="mb-8">
-        <h2 className="text-3xl font-black text-white tracking-tight">Your Sessions</h2>
+        <h2 className="text-2xl font-black text-white tracking-tight">Your Sessions</h2>
 
         {/* Progress bar */}
         {filteredSessions.length > 0 && (
@@ -40,21 +40,23 @@ export default function SessionList() {
       </div>
 
       {/* Filter Pills */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {subjects.map((sub) => (
-          <button
-            key={sub}
-            onClick={() => setFilterSubject(sub)}
-            className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 border
+      {filteredSessions.length > 0 &&
+        <div className="flex flex-wrap gap-2 mb-6">
+          {subjects.map((sub) => (
+            <button
+              key={sub}
+              onClick={() => setFilterSubject(sub)}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 border
               ${filterSubject === sub
-                ? "bg-indigo-600 border-indigo-500 text-white shadow-md shadow-indigo-900/40"
-                : "bg-transparent border-[#2d2d2d] text-gray-500 hover:border-gray-500 hover:text-gray-200"
-              }`}
-          >
-            {sub}
-          </button>
-        ))}
-      </div>
+                  ? "bg-indigo-600 border-indigo-500 text-white shadow-md shadow-indigo-900/40"
+                  : "bg-transparent border-[#2d2d2d] text-gray-500 hover:border-gray-500 hover:text-gray-200"
+                }`}
+            >
+              {sub}
+            </button>
+          ))}
+        </div>
+      }
 
       {/* Card Grid */}
       {filteredSessions.length > 0 ? (
@@ -73,7 +75,7 @@ export default function SessionList() {
         <div className="text-center py-20">
           <p className="text-4xl mb-3">🗂️</p>
           <p className="text-gray-500 text-sm">
-            No sessions found for <span className="text-gray-300">{filterSubject}</span>.
+            No sessions found at <span className="text-gray-300">{filterSubject}</span>.
           </p>
         </div>
       )}

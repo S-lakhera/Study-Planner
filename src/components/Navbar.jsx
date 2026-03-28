@@ -5,7 +5,7 @@ import Logo from './Logo'
 const Navbar = () => {
     const {setIsFormVisible} = useContext(SessionContext)
   return (
-    <div className=' flex justify-between px-4 md:px-10  py-4.5 border-b border-slate-400 hover:border-slate-200 transition-all duration-200'>
+    <div className=' flex justify-between px-4 md:px-10  py-3.5 border-b border-slate-400 hover:border-slate-200 transition-all duration-200'>
 
       {/* <h1 className=' md:text-2xl font-bold'>Study-Planner</h1> */}
       <Logo/>

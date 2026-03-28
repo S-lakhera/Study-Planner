@@ -25,11 +25,8 @@ export default function Logo() {
 
       {/* Text */}
       <div className="flex flex-col leading-none gap-1">
-        <span className="text-white font-bold md:text-lg tracking-wider" >
+        <span className="text-white font-bold md:text-xl tracking-wider" >
           Study-Planner
-        </span>
-        <span className="text-gray-500 text-[10px] tracking-widest uppercase mt-0.5">
-          Your sessions
         </span>
       </div>
     </div>
