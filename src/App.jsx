@@ -7,9 +7,9 @@ import { SessionContext } from './context/SessionContext'
 const App = () => {
   const {isFormVisible} = useContext(SessionContext)
   return (
-    <div className='mx-5'>
+    <div className='mx-1 md:mx-5'>
       <Navbar/>
-      <div className='mx-5 md:mx-8'>
+      <div className=''>
         {isFormVisible && <SessionForm/>}
         {/* <SessionForm/> */}
         <SessionList/>
