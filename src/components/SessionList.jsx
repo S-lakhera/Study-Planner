@@ -20,7 +20,7 @@ export default function SessionList() {
 
       {/* Header */}
       <div className="mb-8">
-        <h2 className="text-2xl font-black text-white tracking-tight">Your Sessions</h2>
+        <h2 className="text-2xl font-bold text-white tracking-tight">Your Sessions</h2>
 
         {/* Progress bar */}
         {filteredSessions.length > 0 && (
