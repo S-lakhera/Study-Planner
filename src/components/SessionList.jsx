@@ -40,23 +40,21 @@ export default function SessionList() {
       </div>
 
       {/* Filter Pills */}
-      {filteredSessions.length > 0 &&
-        <div className="flex flex-wrap gap-2 mb-6">
-          {subjects.map((sub) => (
-            <button
-              key={sub}
-              onClick={() => setFilterSubject(sub)}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 border
+      <div className="flex flex-wrap gap-2 mb-6">
+        {subjects.map((sub) => (
+          <button
+            key={sub}
+            onClick={() => setFilterSubject(sub)}
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 border
               ${filterSubject === sub
-                  ? "bg-indigo-600 border-indigo-500 text-white shadow-md shadow-indigo-900/40"
-                  : "bg-transparent border-[#2d2d2d] text-gray-500 hover:border-gray-500 hover:text-gray-200"
-                }`}
-            >
-              {sub}
-            </button>
-          ))}
-        </div>
-      }
+                ? "bg-indigo-600 border-indigo-500 text-white shadow-md shadow-indigo-900/40"
+                : "bg-transparent border-[#2d2d2d] text-gray-500 hover:border-gray-500 hover:text-gray-200"
+              }`}
+          >
+            {sub}
+          </button>
+        ))}
+      </div>
 
       {/* Card Grid */}
       {filteredSessions.length > 0 ? (
